@@ -2,7 +2,7 @@ package com.loanapp.controller;
 
 import com.loanapp.model.LoanAgreement;
 import com.loanapp.service.LoanAgreementService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class LoanAgreementController {
 
-    @Autowired
-    private LoanAgreementService loanAgreementService;
+    private final LoanAgreementService loanAgreementService;
+
+    public LoanAgreementController(LoanAgreementService loanAgreementService) {
+        this.loanAgreementService = loanAgreementService;
+    }
 
     @GetMapping("/agreements")
     public String listAgreements(Model model) {

@@ -4,7 +4,7 @@ import com.loanapp.RandomDecisionMaker;
 import com.loanapp.model.CreditApplication;
 import com.loanapp.repository.CreditApplicationRepository;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,14 +13,11 @@ import java.util.List;
 @Service
 public class CreditApplicationService {
 
-    private final CreditApplicationRepository creditApplicationRepository;
+    @Autowired
+    private CreditApplicationRepository creditApplicationRepository;
 
-    private final RandomDecisionMaker randomDecisionMaker;
-
-    public CreditApplicationService(CreditApplicationRepository creditApplicationRepository, RandomDecisionMaker randomDecisionMaker) {
-        this.creditApplicationRepository = creditApplicationRepository;
-        this.randomDecisionMaker = randomDecisionMaker;
-    }
+    @Autowired
+    private RandomDecisionMaker randomDecisionMaker;
 
     public void submitApplication(CreditApplication creditApplication) {
         randomDecisionMaker.makeDecision(creditApplication);
