@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>new zaavka</title>
+</head>
+<body>
+<h2>Новая заявка на кредит</h2>
+<form th:action="@{/applications/save}" method="post" th:object="${application}">
+    <label for="fullName">ФИО:</label>
+    <input type="text" id="fullName" th:field="*{client.fullName}" required><br><br>
+
+    <label for="passportData">Паспортные данные:</label>
+    <input type="text" id="passportData" th:field="*{client.passportData}" required><br><br>
+
+    <label for="maritalStatus">Семейное положение:</label>
+    <input type="text" id="maritalStatus" th:field="*{client.maritalStatus}" required><br><br>
+
+    <label for="address">Адрес прописки:</label>
+    <input type="text" id="address" th:field="*{client.address}" required><br><br>
+
+    <label for="phone">Контактный телефон:</label>
+    <input type="tel" id="phone" th:field="*{client.phone}" required><br><br>
+
+    <label for="employmentInfo">Сведения о занятости:</label>
+    <input type="text" id="employmentInfo" th:field="*{client.employmentInfo}" required><br><br>
+
+    <label for="desiredAmount">Сумма желаемого кредита:</label>
+    <input type="number" id="desiredAmount" th:field="*{desiredAmount}" min="1" required><br><br>
+
+    <input type="submit" value="Создать заявку">
+</form>
+</body>
+</html>
