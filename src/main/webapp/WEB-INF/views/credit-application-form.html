@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Credit Application</title>
+</head>
+<body>
+<h1>New Credit Application</h1>
+<form action="/applications/new" method="post">
+    <select name="clientId">
+        <option th:each="client : ${clients}" th:value="${client.id}" th:text="${client.fullName}"></option>
+    </select>
+    <input type="text" name="desiredLoanAmount" placeholder="Loan Amount">
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

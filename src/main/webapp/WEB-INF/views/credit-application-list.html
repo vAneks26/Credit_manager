@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Applications</title>
+</head>
+<body>
+<h1>Credit Applications</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Client Name</th>
+        <th>Status</th>
+    </tr>
+    <tr th:each="application : ${applications}">
+        <td th:text="${application.id}">1</td>
+        <td th:text="${application.clientName}">John Doe</td>
+        <td th:text="${application.status}">Pending</td>
+    </tr>
+</table>
+</body>
+</html>

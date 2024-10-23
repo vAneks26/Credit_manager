@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clients</title>
+</head>
+<body>
+<h1>Clients</h1>
+<form action="/clients/search" method="post">
+    <input type="text" name="query" placeholder="Search by phone, name, or passport">
+    <button type="submit">Search</button>
+</form>
+<ul>
+    <li th:each="client : ${clients}">
+        <span th:text="${client.fullName}"></span> -
+        <span th:text="${client.phoneNumber}"></span>
+    </li>
+</ul>
+</body>
+</html>

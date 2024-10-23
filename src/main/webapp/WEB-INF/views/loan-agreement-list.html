@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Agreements</title>
+</head>
+<body>
+<h1>Loan Agreements</h1>
+<ul>
+    <li th:each="agreement : ${agreements}">
+        <span th:text="${agreement.creditApplication.client.fullName}"></span> -
+        <span th:text="${agreement.signingStatus}"></span>
+    </li>
+</ul>
+</body>
+</html>
