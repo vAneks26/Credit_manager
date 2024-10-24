@@ -2,7 +2,6 @@ package com.loanapp.controller;
 
 
 
-import com.loanapp.model.Client;
 import com.loanapp.model.CreditApplication;
 import com.loanapp.service.ClientService;
 import org.springframework.stereotype.Controller;
@@ -35,9 +34,7 @@ public class ClientController {
     // Форма для создания новой заявки
     @GetMapping("/new")
     public String showApplicationForm(Model model) {
-        System.out.println("GET /new вызван");
         CreditApplication application = new CreditApplication();
-        application.setClient(new Client());
         model.addAttribute("application", application);
         return "application-form";
     }

@@ -1,6 +1,7 @@
-<!DOCTYPE html>
-<html>
+<?xml version="1.0" encoding="UTF-8"?>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Loan Agreements</title>
 </head>
 <body>
@@ -9,6 +10,7 @@
     <li th:each="agreement : ${agreements}">
         <span th:text="${agreement.creditApplication.client.fullName}"></span> -
         <span th:text="${agreement.signingStatus}"></span>
+
     </li>
 </ul>
 </body>

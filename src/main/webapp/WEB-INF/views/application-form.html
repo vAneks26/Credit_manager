@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -26,8 +25,8 @@
     <label for="employmentInfo">Сведения о занятости:</label>
     <input type="text" id="employmentInfo" th:field="*{client.employmentInfo}" required><br><br>
 
-<!--    <label for="desiredAmount">Сумма желаемого кредита:</label>-->
-<!--    <input type="number" id="desiredAmount" th:field="*{desiredAmount}" min="1" required><br><br>-->
+<label for="desiredAmount">Сумма желаемого кредита:</label>-->
+<input type="number" id="desiredAmount" th:field="*{approvedLoanAmount}" min="1" required><br><br>-->
 
     <input type="submit" value="Создать заявку">
 </form>

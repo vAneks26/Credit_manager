@@ -6,7 +6,10 @@ import com.loanapp.service.LoanAgreementService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Date;
 
 @Controller
 public class LoanAgreementController {
@@ -24,8 +27,14 @@ public class LoanAgreementController {
     }
 
     @PostMapping("/agreements/sign")
-    public String signAgreement(LoanAgreement loanAgreement, Model model) {
-        loanAgreementService.signAgreement(loanAgreement);
-        return "redirect:/agreements";
+    public String signAgreement(@ModelAttribute LoanAgreement loanAgreement, Model model) {
+        if ("Approved".equals(loanAgreement.getCreditApplication().getDecisionStatus())) {
+            loanAgreement.setSigningStatus("Signed");
+            loanAgreement.setSigningDate(new Date());
+            loanAgreementService.signAgreement(loanAgreement);
+            return "redirect:/agreements";
+        }
+        model.addAttribute("error", "Loan agreement cannot be signed as the application is not approved.");
+        return "loan-agreement-list";
     }
 }

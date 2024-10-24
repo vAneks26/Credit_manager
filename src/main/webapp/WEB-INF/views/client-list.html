@@ -1,6 +1,7 @@
-<!DOCTYPE html>
-<html>
+<?xml version="1.0" encoding="UTF-8"?>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Clients</title>
 </head>
 <body>
@@ -11,7 +12,7 @@
 </form>
 <ul>
     <li th:each="client : ${clients}">
-        <span th:text="${client.fullName}"></span> -
+        <span th:text="${client.fullName}"></span>
         <span th:text="${client.phoneNumber}"></span>
     </li>
 </ul>
